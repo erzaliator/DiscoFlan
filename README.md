@@ -1,3 +1,7 @@
+# DiscoFlan
+
+## Overview: Refined and Unrefined models
+
 This is Disrpt submission for our generative model. 
 There are two models:
 | DiscoFlan (Unrefined)                         | DiscoFlan+Ref (Refined)                           |
@@ -11,22 +15,30 @@ There are two models:
 
 
 
-
-Submission for refined and unrefined models. FlanT5+Ref is refined. FlanT5 is unrefined. 
 a) Refined models will be considered for submission hence the evaluation script is also provided. 
+
 b) Unrefined models will not be considered for submission hence evaluation script is not provided. 
 
-We want to conduct analysis of models for camera ready submission hence we request organised to kindly mail us the following files:
-All csv and tsv files created in .refined/ and .unrefined/ Thank you.
+
+## Scripts and outputs
 
 
-***submission_runner.py*** trains the following models (refer to comments submission_runner.py for other instructions)
+There are two way to run the model (synchronously or in the background):
+1. ***submission_runner.sh*** trains the following models (refer to comments submission_runner.sh for other instructions)
+2. ***submission_runner_nohup.sh*** does the same by spawning background processes.
 
 
-*Instructions*
+Accuracy scores are automatically generated as output. Generated labels are stored in *predictions.csv* and the best model is saved in *best.pt*
+
+
+## Instructions
 
 create conda environment
-```conda create --name flant5 python=3.10
+```
+cd DiscoFlan
+mkdir refined_runs
+mkdir unrefined_runs
+conda create --name flant5 python=3.10
 conda activate flant5
 ```
 
@@ -44,12 +56,3 @@ bash submission_runner.sh
 
 ***Misc***
 Batchsize can be modified if necessary in runner.py. Cuda device id can be provided in submission_runner.sh.
-
-
-**Email for contact**
-anuranjana25@gmail.com
-kaveri@coli.uni-saarland.de
-
-
-conda create --name flant5_v2 python=3.10
-conda activate flant5_v2
