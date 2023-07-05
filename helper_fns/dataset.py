@@ -186,6 +186,7 @@ def get_fall_back_label_space(dataset_name, val_labels, train_labels):
     else:
         alternate_dataset_name = None
         label_space = train_labels
+    label_space = list(set(label_space))
     return label_space
 
 def get_epochs(lang, refinement):
@@ -322,7 +323,7 @@ def get_lr(lang, refinement):
     #     }
     
     data_dict = {
-        'deu.rst.pcc': 1e-3,#[[1e-3]]
+        'deu.rst.pcc': 1e-3,#1e-3,#[[1e-3]]
         'eng.dep.covdtb': 1e-5, #LDC[[1e-5]]]
         'eng.dep.scidtb': 1e-5, #[[1e-5]]*h
         'eng.pdtb.pdtb': 1e-5, #[[1e-5]]
@@ -340,14 +341,14 @@ def get_lr(lang, refinement):
         'por.rst.cstn': 1e-3, #[[1e-3]]
         'rus.rst.rrt': 1e-5, #[[1e-5]]]
         'spa.rst.rststb': 1e-3, #[[1e-3]]
-        'spa.rst.sctb': 1e-3,#[[1e-3]]
+        'spa.rst.sctb': 1e-3,#1e-3,#[[1e-3]]
         'tha.pdtb.tdtb': 1e-5, #[[1e-5]]
         'tur.pdtb.tdb': 1e-3, #[[1e-5]]
         'tur.pdtb.tedm': 1e-3, #LDC
         'zho.dep.scidtb': 1e-3, #[[1e-3]]
         'zho.pdtb.cdtb': 1e-3, #LDC
         'zho.rst.gcdt': 1e-3, #[[1e-3]]
-        'zho.rst.sctb': 1e-3#[[1e-3]]
+        'zho.rst.sctb': 1e-3#1e-3#[[1e-3]]
         }
     return data_dict[lang]
 
